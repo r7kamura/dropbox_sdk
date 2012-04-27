@@ -752,13 +752,13 @@ class DropboxClient
     #   given path, then ignore the entry.
     # * <tt>['reset']</tt>: Indicates that you should clear your local state and start
     #   from scratch.  This only happens in rare circumstances.
-    def delta_beta(cursor=nil)
+    def delta(cursor=nil)
         params = {}
         if cursor
             params['cursor'] = cursor
         end
 
-        response = @session.do_post build_url("/delta_beta", params)
+        response = @session.do_post build_url("/delta", params)
         parse_response(response)
     end
 
